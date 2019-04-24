@@ -18,6 +18,5 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e);
         }
-        System.out.println("This is a change");
     }
 }
