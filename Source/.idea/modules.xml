@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CIS-232-FINAL-PROJECT.iml" filepath="$PROJECT_DIR$/CIS-232-FINAL-PROJECT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CoffeeDBDemo.iml" filepath="$PROJECT_DIR$/CoffeeDBDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoffeeDBDemo.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CoffeeDBDemo.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoffeeDBDemo.test.iml" filepath="$PROJECT_DIR$/.idea/modules/CoffeeDBDemo.test.iml" />
     </modules>
   </component>
 </project>
