@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.Scanner;
 
-public class CoffeeUpdater {
+public class ComputerUpdater {
     public static void main(String[] args) {
         String description;
         Double price;

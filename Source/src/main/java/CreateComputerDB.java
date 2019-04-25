@@ -12,7 +12,7 @@ public class CreateComputerDB
    {
       // Create a named constant for the URL.
       // NOTE: This value is specific for Java DB.
-      final String DB_URL = "jdbc:derby:CoffeeDB;create=true";
+      final String DB_URL = "jdbc:derby:ComputerDB;create=true";
       
       try
       {
@@ -24,7 +24,7 @@ public class CreateComputerDB
 			dropTables(conn);
 			
 			// Build the Coffee table.
-			buildCoffeeTable(conn);
+			buildComputerTable(conn);
 			
 			// Build the Customer table.
 			buildCustomerTable(conn);
@@ -98,10 +98,10 @@ public class CreateComputerDB
 	}
 	
 	/**
-	 * The buildCoffeeTable method creates the
+	 * The buildComputerTable method creates the
 	 * Coffee table and adds some rows to it.
 	 */
-	public static void buildCoffeeTable(Connection conn)
+	public static void buildComputerTable(Connection conn)
 	{
 		try
 		{
@@ -109,7 +109,7 @@ public class CreateComputerDB
          Statement stmt = conn.createStatement();
          
 			// Create the table.
-			stmt.execute("CREATE TABLE Coffee (" +
+			stmt.execute("CREATE TABLE Computer (" +
    				       "Description CHAR(25), " +
                       "ProdNum CHAR(10) NOT NULL PRIMARY KEY, " +
                       "Price DOUBLE " +
