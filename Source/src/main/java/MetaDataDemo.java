@@ -11,7 +11,7 @@ public class MetaDataDemo
    {
       // Create a named constant for the URL.
       // NOTE: This value is specific for Java DB.
-      final String DB_URL = "jdbc:derby:CoffeeDB";
+      final String DB_URL = "jdbc:derby:ComputerDB";
       
       try
       {
@@ -20,7 +20,7 @@ public class MetaDataDemo
          
          // Get a SELECT statement from the user.
          System.out.println("Enter a SELECT statment for " +
-                            "the CoffeeDB database:");
+                            "the ComputerDB database:");
          String sql = keyboard.nextLine();
          
          // Create a connection to the database.

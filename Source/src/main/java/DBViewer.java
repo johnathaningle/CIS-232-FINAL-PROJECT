@@ -13,7 +13,7 @@ import java.sql.*;
 public class DBViewer extends Application
 {
    // Database URL.
-   final String DB_URL = "jdbc:derby:CoffeeDB";
+   final String DB_URL = "jdbc:derby:ComputerDB";
    
    // Controls for input and output
    TextArea queryTextArea;

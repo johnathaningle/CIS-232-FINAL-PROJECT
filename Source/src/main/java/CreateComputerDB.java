@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * This program creates the CoffeeDB database.
+ * This program creates the Computer database.
  */
 public class CreateComputerDB
 {
@@ -23,7 +23,7 @@ public class CreateComputerDB
 			// If the DB already exists, drop the tables.
 			dropTables(conn);
 			
-			// Build the Coffee table.
+			// Build the Computer table.
 			buildComputerTable(conn);
 			
 			// Build the Customer table.
@@ -82,7 +82,7 @@ public class CreateComputerDB
 			{
 	         // Drop the Coffee table.
 	         stmt.execute("DROP TABLE Coffee");
-				System.out.println("Coffee table dropped.");
+				System.out.println("Computer table dropped.");
 			}
 			catch(SQLException ex)
 			{
@@ -99,7 +99,7 @@ public class CreateComputerDB
 	
 	/**
 	 * The buildComputerTable method creates the
-	 * Coffee table and adds some rows to it.
+	 * Computer table and adds some rows to it.
 	 */
 	public static void buildComputerTable(Connection conn)
 	{
@@ -116,114 +116,114 @@ public class CreateComputerDB
                       ")");
 							 
 			// Insert row #1.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Bolivian Dark', " +
                       "'14-001', " +
                       "8.95 )" );
 
 			// Insert row #1.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Bolivian Medium', " +
                       "'14-002', " +
                       "8.95 )");
 
 			// Insert row #2.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Brazilian Dark', " +
                       "'15-001', " +
                       "7.95 )");
 
 			// Insert row #3.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Brazilian Medium', " +
                       "'15-002', " +
                       "7.95 )");
 
 			// Insert row #4.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Brazilian Decaf', " +
                       "'15-003', " +
                       "8.55 )" );
 
 			// Insert row #5.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Central American Dark', " +
                       "'16-001', " +
                       "9.95 )");
 
 			// Insert row #6.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Central American Medium', " +
                       "'16-002', " +
                       "9.95 )");
 
 			// Insert row #1.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Sumatra Dark', " +
                       "'17-001', " +
                       "7.95 )");
 
 			// Insert row #7.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Sumatra Decaf', " +
                       "'17-002', " +
                       "8.95 )");
 
 			// Insert row #8.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Sumatra Medium', " +
                       "'17-003', " +
                       "7.95 )");
 
 			// Insert row #9.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Sumatra Organic Dark', " +
                       "'17-004', " +
                       "11.95 )");
 
 			// Insert row #10.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
 						    "'Kona Medium', " +
 						    "'18-001', " +
 						    "18.45 )");
 
 			// Insert row #11.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
 						    "'Kona Dark', " +
 						    "'18-002', " +
 						    "18.45 )");
 
 			// Insert row #12.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'French Roast Dark', " +
                       "'19-001', " +
                       "9.65 )");
 
 			// Insert row #13.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Galapagos Medium', " +
                       "'20-001', " +
                       "6.85 )");
 
 			// Insert row #14.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Guatemalan Dark', " +
                       "'21-001', " +
                       "9.95 )");
 
 			// Insert row #15.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Guatemalan Decaf', " +
                       "'21-002', " +
                       "10.45 )");
 
 			// Insert row #16.
-			stmt.execute("INSERT INTO Coffee VALUES ( " +
+			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Guatemalan Medium', " +
                       "'21-003', " +
                       "9.95 )");
 							 
-			System.out.println("Coffee table created.");
+			System.out.println("Computer table created.");
 		}
 		catch (SQLException ex)
       {
@@ -262,7 +262,7 @@ public class CreateComputerDB
                " 'Canton', 'NC', '55555')");
 
          stmt.executeUpdate("INSERT INTO Customer VALUES" +
-               "('103', 'The Coffee Place', '101 Center Plaza'," +
+               "('103', 'The Computer Place', '101 Center Plaza'," +
                " 'Waynesville', 'NC', '55516')");
 					
 			System.out.println("Customer table created.");
@@ -288,7 +288,7 @@ public class CreateComputerDB
          // Create the table.
          stmt.execute("CREATE TABLE UnpaidOrder " +
 				"( CustomerNumber CHAR(10) NOT NULL REFERENCES Customer(CustomerNumber), "+
-				"  ProdNum CHAR(10) NOT NULL REFERENCES Coffee(ProdNum),"+
+				"  ProdNum CHAR(10) NOT NULL REFERENCES Computer(ProdNum),"+
 				"  OrderDate CHAR(10),"+
 				"  Quantity DOUBLE,"+
 				"  Cost DOUBLE )");

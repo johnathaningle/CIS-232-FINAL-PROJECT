@@ -13,7 +13,7 @@ public class ShowComputers
    {
       // Create a named constant for the URL.
       // NOTE: This value is specific for Java DB.
-      final String DB_URL = "jdbc:derby:CoffeeDB";
+      final String DB_URL = "jdbc:derby:ComputerDB";
       
       try
       {
@@ -25,13 +25,13 @@ public class ShowComputers
          
          // Create a string with a SELECT statement.
          String sqlStatement = 
-            "SELECT * FROM Coffee WHERE Price > 10.00";
+            "SELECT * FROM Computer WHERE Price > 10.00";
          
          // Send the statement to the DBMS.
          ResultSet result = stmt.executeQuery(sqlStatement);
          
          // Display a header for the listing.
-         System.out.println("Coffees costing more than $10.00");
+         System.out.println("Computers costing more than $10.00");
          System.out.println("--------------------------------");
          
          // Display the contents of the result set.

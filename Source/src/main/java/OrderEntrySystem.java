@@ -18,7 +18,7 @@ public class OrderEntrySystem extends Application
 {
    // Fields for input
    private ListView<String> customerListView;
-   private ListView<String> coffeeListView;
+   private ListView<String> ComputerListView;
    private TextField qtyTextField;
    private TextField orderDateTextField;
    
@@ -38,14 +38,14 @@ public class OrderEntrySystem extends Application
       customerVBox.setAlignment(Pos.CENTER);
       customerVBox.setPadding(new Insets(SPACING));
       
-      // Build the coffee selection area
-      Label coffeePrompt = new Label("Select a Coffee");
-      coffeeListView = new ListView<String>();
-      coffeeListView.setPrefSize(LV_WIDTH, LV_HEIGHT);
-      VBox coffeeVBox = new VBox(10, coffeePrompt,
-                                 coffeeListView);
-      coffeeVBox.setAlignment(Pos.CENTER);
-      coffeeVBox.setPadding(new Insets(SPACING));
+      // Build the Computer selection area
+      Label ComputerPrompt = new Label("Select a Computer");
+      ComputerListView = new ListView<String>();
+      ComputerListView.setPrefSize(LV_WIDTH, LV_HEIGHT);
+      VBox ComputerVBox = new VBox(10, ComputerPrompt,
+                                 ComputerListView);
+      ComputerVBox.setAlignment(Pos.CENTER);
+      ComputerVBox.setPadding(new Insets(SPACING));
       
       // Build the qunatity and date entry areas.
       Label qtyPrompt = new Label("Quantity");
@@ -76,7 +76,7 @@ public class OrderEntrySystem extends Application
       // Put everything inside a BorderPane.
       BorderPane borderPane = new BorderPane();
       borderPane.setLeft(customerVBox);
-      borderPane.setCenter(coffeeVBox);
+      borderPane.setCenter(ComputerVBox);
       borderPane.setRight(orderVBox);
       borderPane.setBottom(buttonHBox);
       
@@ -90,7 +90,7 @@ public class OrderEntrySystem extends Application
    
    /**
     * The loadData method loads customer names and
-    * coffee names into the ListView controls.
+    * Computer names into the ListView controls.
     */
     
    private void loadData()
@@ -101,9 +101,9 @@ public class OrderEntrySystem extends Application
          customerListView.getItems().setAll(
                  ComputerDBManager.getCustomerNames());
          
-         // Load coffee names into the ListView.
-         coffeeListView.getItems().setAll(
-                 ComputerDBManager.getCoffeeNames());
+         // Load Computer names into the ListView.
+         ComputerListView.getItems().setAll(
+                 ComputerDBManager.getComputerNames());
       }
       catch (SQLException e)
       {
@@ -146,9 +146,9 @@ public class OrderEntrySystem extends Application
             String customerName =
                customerListView.getSelectionModel().getSelectedItem();
             
-            // Get the coffee name from the ListView
-            String coffeeName =
-               coffeeListView.getSelectionModel().getSelectedItem();
+            // Get the Computer name from the ListView
+            String ComputerName =
+               ComputerListView.getSelectionModel().getSelectedItem();
             
             // Get the quantity
             int qty = Integer.parseInt(qtyTextField.getText());
@@ -160,11 +160,11 @@ public class OrderEntrySystem extends Application
             String customerNum =
                ComputerDBManager.getCustomerNum(customerName);
             
-            // Get the coffee product number from the DB
-            String prodNum = ComputerDBManager.getProdNum(coffeeName);
+            // Get the Computer product number from the DB
+            String prodNum = ComputerDBManager.getProdNum(ComputerName);
             
             // Get the price per pound from the DB
-            double price = ComputerDBManager.getCoffeePrice(prodNum);
+            double price = ComputerDBManager.getComputerPrice(prodNum);
             
             // Submit the order to the DB
             ComputerDBManager.submitOrder(customerNum, prodNum, qty,

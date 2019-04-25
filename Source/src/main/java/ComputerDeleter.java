@@ -1,8 +1,8 @@
 import java.util.Scanner;
 import java.sql.*;
 /**
- * This program lets the user delete a coffee
- * from the CoffeeDB database's Coffee table
+ * This program lets the user delete a Computer
+ * from the ComputerDB database's Computer table
  */
 public class ComputerDeleter
 {
@@ -11,7 +11,7 @@ public class ComputerDeleter
         String prodNum;
 
         //Create named constant for the URL
-        final String DB_URL = "jdbc:derby:CoffeeDB";
+        final String DB_URL = "jdbc:derby:ComputerDB";
 
         //Create a Scanner object for the keyboard input
         Scanner keyboard = new Scanner(System.in);
@@ -28,7 +28,7 @@ public class ComputerDeleter
             System.out.println("Enter the product number: ");
             prodNum  = keyboard.nextLine();
 
-            //Display the coffee's current data
+            //Display the Computer's current data
             if (findAndDisplayProduct(stmt, prodNum))
             {
                 //Make sure user wants to delete
@@ -36,8 +36,8 @@ public class ComputerDeleter
                 sure = keyboard.nextLine();
                 if(Character.toUpperCase(sure.charAt(0)) == 'Y')
                 {
-                    //Delete the specified coffee
-                    deleteCoffee(stmt, prodNum);
+                    //Delete the specified Computer
+                    deleteComputer(stmt, prodNum);
                 }
                 else
                 {
@@ -73,7 +73,7 @@ public class ComputerDeleter
 
         //Create SELECT stmt
         String sqlStatement =
-                "SELECT * FROM Coffee WHERE ProdNum = '" +
+                "SELECT * FROM Computer WHERE ProdNum = '" +
                         prodNum + "'";
 
         //Send that SQL stmt DBMS
@@ -93,14 +93,14 @@ public class ComputerDeleter
         return productFound;
     }
 
-    /** deleteCoffee method
+    /** deleteComputer method
      *
      */
 
-    public static void deleteCoffee(Statement stmt, String prodNum) throws SQLException
+    public static void deleteComputer(Statement stmt, String prodNum) throws SQLException
     {
         //Create the DELETE stmt
-        String sqlStatement = "DELETE FROM Coffee " +
+        String sqlStatement = "DELETE FROM Computer " +
                 "WHERE ProdNum = '" + prodNum + "'";
 
         //Send the DELETE statement

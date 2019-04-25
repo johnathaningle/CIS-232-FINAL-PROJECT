@@ -8,7 +8,7 @@ public class ComputerMinPrice {
     public static void main(String[] args) {
 
         //Variables to hold the lowest, highest and
-        //average price of coffee
+        //average price of Computer
         double lowest = 0.0;
         double highest = 0.0;
         double average = 0.0;
@@ -17,7 +17,7 @@ public class ComputerMinPrice {
 
 
         //Create named constant for the URL
-        final String DB_URL = "jdbc:derby:CoffeeDB";
+        final String DB_URL = "jdbc:derby:ComputerDB";
 
         try {
             //Create a connection to the database
@@ -27,12 +27,12 @@ public class ComputerMinPrice {
             //create the Statement object
             Statement stmt = conn.createStatement();
 
-            //Create select statements to get the lowest, highest and average price from Coffee table
-            String minStatement = "SELECT MIN(Price) FROM Coffee";
-            String maxStatement = "SELECT MAX(Price) FROM Coffee";
-            String avgStatement = "SELECT AVG(Price) FROM Coffee";
-            String countStatement = "SELECT COUNT(*) FROM COffee";
-            String sumStatement = "SELECT SUM(Price) FROM Coffee";
+            //Create select statements to get the lowest, highest and average price from Computer table
+            String minStatement = "SELECT MIN(Price) FROM Computer";
+            String maxStatement = "SELECT MAX(Price) FROM Computer";
+            String avgStatement = "SELECT AVG(Price) FROM Computer";
+            String countStatement = "SELECT COUNT(*) FROM Computer";
+            String sumStatement = "SELECT SUM(Price) FROM Computer";
 
 
             //Get the lowest price
@@ -55,7 +55,7 @@ public class ComputerMinPrice {
             if (countResult.next())
                 count = countResult.getDouble(1);
 
-            //Get the sum of the coffee prices
+            //Get the sum of the Computer prices
             ResultSet sumResult = stmt.executeQuery(sumStatement);
             if (sumResult.next())
                 sum = sumResult.getDouble(1);

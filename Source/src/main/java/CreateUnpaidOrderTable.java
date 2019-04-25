@@ -1,6 +1,6 @@
 /**
  * This program demonstrates creates the UnpaidOrder
- * table in the CoffeeDB database.
+ * table in the ComputerDB database.
  */
 
 import java.sql.Connection;
@@ -17,7 +17,7 @@ public class CreateUnpaidOrderTable
       // Create constants for the driver name and URL.
       // NOTE: These values are specific for Cloudscape.
       final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
-      final String DB_URL = "jdbc:derby:CoffeeDB";
+      final String DB_URL = "jdbc:derby:ComputerDB";
 		
       
       try
@@ -36,7 +36,7 @@ public class CreateUnpaidOrderTable
          // Make an SQL statement to create the table.
          String sql = "CREATE TABLE UnpaidOrder " +
 				"( CustomerNumber CHAR(10) NOT NULL REFERENCES Customer(CustomerNumber), "+
-				"  ProdNum CHAR(10) NOT NULL REFERENCES Coffee(ProdNum),"+
+				"  ProdNum CHAR(10) NOT NULL REFERENCES Computer(ProdNum),"+
 				"  OrderDate CHAR(10),"+
 				"  Quantity DOUBLE,"+
 				"  Cost DOUBLE )";

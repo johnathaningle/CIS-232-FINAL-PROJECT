@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.sql.*;
 
 /**
- * This program lets the user insert a row into the CoffeeDB database's Coffee table
+ * This program lets the user insert a row into the ComputerDB database's Computer table
  */
 public class ComputerInserter {
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class ComputerInserter {
         Double price;
 
         //Create named constant for the URL
-        final String DB_URL = "jdbc:derby:CoffeeDB";
+        final String DB_URL = "jdbc:derby:ComputerDB";
 
         //Create a Scanner object for the keyboard input
         Scanner keyboard = new Scanner(System.in);
@@ -21,8 +21,8 @@ public class ComputerInserter {
             //Create a connection to the database
             Connection conn = DriverManager.getConnection(DB_URL);
 
-            //Get the data for the new coffee
-            System.out.println("Enter the coffee description: ");
+            //Get the data for the new Computer
+            System.out.println("Enter the Computer description: ");
             description = keyboard.nextLine();
             System.out.println("Enter the product number: ");
             prodNum  = keyboard.nextLine();
@@ -33,7 +33,7 @@ public class ComputerInserter {
             Statement stmt = conn.createStatement();
 
             //Create a string with an INSERT statement
-            String sqlStatement = "INSERT INTO Coffee " +
+            String sqlStatement = "INSERT INTO Computer " +
                     "(ProdNum, Price, Description) " +
                     "VALUES ( '" + prodNum + "', " +
                     price + ", '" + description + "')";

@@ -4,7 +4,7 @@ import java.sql.Statement;
 
 /**
  * This program demonstrates creates a Customer
- * table in the CoffeeDB database.
+ * table in the ComputerDB database.
  */
  
 public class CreateCustomerTable
@@ -13,7 +13,7 @@ public class CreateCustomerTable
    {
       // Create a named constant for the URL.
       // NOTE: This value is specific for Java DB.
-      final String DB_URL = "jdbc:derby:CoffeeDB";
+      final String DB_URL = "jdbc:derby:ComputerDB";
       
       try
       {
@@ -48,7 +48,7 @@ public class CreateCustomerTable
          stmt.executeUpdate(sql);
 
          sql = "INSERT INTO Customer VALUES" +
-               "('103', 'The Coffee Place', '101 Center Plaza'," +
+               "('103', 'The Computer Place', '101 Center Plaza'," +
                " 'Waynesville', 'NC', '55516')";
          stmt.executeUpdate(sql);
 

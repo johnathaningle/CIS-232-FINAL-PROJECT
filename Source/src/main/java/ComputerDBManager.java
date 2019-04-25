@@ -3,13 +3,13 @@ import java.util.ArrayList;
 
 /**
  * The ComputerDBManager class performs operations
- * the CoffeeDB database.
+ * the ComputerDB database.
  */
 
 public class ComputerDBManager
 {
     // Constant for database URL.
-    public final static String DB_URL = "jdbc:derby:CoffeeDB";
+    public final static String DB_URL = "jdbc:derby:ComputerDB";
 
     /**
      * The getCustomerNames method returns an ArrayList
@@ -60,10 +60,10 @@ public class ComputerDBManager
     }
 
     /**
-     * The getCoffeeNames method returns an array
-     * of Strings containing all the coffee names.
+     * The getComputerNames method returns an array
+     * of Strings containing all the Computer names.
      */
-    public static ArrayList<String> getCoffeeNames() throws SQLException
+    public static ArrayList<String> getComputerNames() throws SQLException
     {
         // Create a connection to the database.
         Connection conn = DriverManager.getConnection(DB_URL);
@@ -76,20 +76,20 @@ public class ComputerDBManager
 
         // Execute the query.
         ResultSet resultSet = stmt.executeQuery(
-                "SELECT Description FROM Coffee");
+                "SELECT Description FROM Computer");
 
         // Get the number of rows
         resultSet.last();                 // Move to last row
         int numRows = resultSet.getRow(); // Get row number
         resultSet.first();                // Move to first row
 
-        // Create an array for the coffee names.
+        // Create an array for the Computer names.
         ArrayList<String> listData = new ArrayList<>();
 
-        // Populate the array with coffee names.
+        // Populate the array with Computer names.
         for (int index = 0; index < numRows; index++)
         {
-            // Store the coffee name in the array.
+            // Store the Computer name in the array.
             listData.add(resultSet.getString(1));
 
             // Go to the next row in the result set.
@@ -106,9 +106,9 @@ public class ComputerDBManager
 
     /**
      * The getProdNum method returns a specific
-     * coffee's product number.
+     * Computer's product number.
      */
-    public static String getProdNum(String coffeeName) throws SQLException
+    public static String getProdNum(String ComputerName) throws SQLException
     {
         String prodNum = ""; // Product number
 
@@ -121,9 +121,9 @@ public class ComputerDBManager
         // Execute the query.
         ResultSet resultSet = stmt.executeQuery(
                 "SELECT ProdNum " +
-                        "FROM Coffee " +
+                        "FROM Computer " +
                         "WHERE Description = '" +
-                        coffeeName + "'");
+                        ComputerName + "'");
 
         // If the result set has a row, go to it
         // and retrieve the product number.
@@ -139,12 +139,12 @@ public class ComputerDBManager
     }
 
     /**
-     * The getCoffeePrice method returns the price
-     * of a coffee.
+     * The getComputerPrice method returns the price
+     * of a Computer.
      */
-    public static double getCoffeePrice(String prodNum) throws SQLException
+    public static double getComputerPrice(String prodNum) throws SQLException
     {
-        double price = 0.0;  // Coffee price
+        double price = 0.0;  // Computer price
 
         // Create a connection to the database.
         Connection conn = DriverManager.getConnection(DB_URL);
@@ -155,7 +155,7 @@ public class ComputerDBManager
         // Execute the query.
         ResultSet resultSet = stmt.executeQuery(
                 "SELECT Price " +
-                        "FROM Coffee " +
+                        "FROM Computer " +
                         "WHERE ProdNum = '" +
                         prodNum + "'");
 
@@ -205,7 +205,7 @@ public class ComputerDBManager
 
     /**
      * The submitOrder method submits an order to
-     * the UnpaidOrder table in the CoffeeDB database.
+     * the UnpaidOrder table in the ComputerDB database.
      */
     public static void submitOrder(String custNum, String prodNum,
                                    int quantity, double price,
