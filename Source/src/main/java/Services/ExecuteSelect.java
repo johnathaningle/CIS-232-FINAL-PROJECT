@@ -1,29 +1,36 @@
 package Services;
 
+import Configuration.Config;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ExecuteSelect {
-    private ResultSet _resultSet;
-    private ResultSetMetaData _resultSetMetaData;
+    private Config _config = new Config();
 
-    public ExecuteSelect(String query) {
-        _resultSet = null;
-        _resultSetMetaData = null;
+    public ArrayList execute(String query) {
+        ArrayList result = new ArrayList();
         try {
             DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         } catch (Exception e) {
             System.out.println(e);
         }
-        final String DB_URL = "jdbc:derby:TestDB";
 
-        try{
-            Connection con = DriverManager.getConnection(DB_URL);
+        try {
+            Connection con = DriverManager.getConnection(_config.DB_URL);
             Statement statement = con.createStatement();
-            _resultSet = statement.executeQuery(query);
-            try {
-                _resultSetMetaData = _resultSet.getMetaData();
-            } catch (Exception e) {
-                System.out.println(e);
+            ResultSet resultSet = statement.executeQuery(query);
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int numColumns = metaData.getColumnCount();
+            while(resultSet.next()) {
+                HashMap part = new HashMap();
+                for(int i = 1; i <= numColumns; i++) {
+                    String key = metaData.getColumnName(i);
+                    String value = resultSet.getString(i);
+                    part.put(key, value);
+                }
+                result.add(part);
             }
             statement.close();
             con.close();
@@ -32,13 +39,6 @@ public class ExecuteSelect {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }
-
-    public ResultSet get_resultSet() {
-        return _resultSet;
-    }
-
-    public ResultSetMetaData get_resultSetMetaData() {
-        return _resultSetMetaData;
+        return result;
     }
 }
