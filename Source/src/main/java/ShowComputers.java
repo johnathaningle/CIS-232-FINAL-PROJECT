@@ -25,7 +25,7 @@ public class ShowComputers
          
          // Create a string with a SELECT statement.
          String sqlStatement = 
-            "SELECT * FROM Computer WHERE Price > 10.00";
+            "SELECT * FROM Computer WHERE Price > 1.00";
          
          // Send the statement to the DBMS.
          ResultSet result = stmt.executeQuery(sqlStatement);

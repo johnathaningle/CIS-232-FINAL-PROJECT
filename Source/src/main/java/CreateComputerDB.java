@@ -105,16 +105,21 @@ public class CreateComputerDB
 	{
 		try
 		{
-         // Get a Statement object.
-         Statement stmt = conn.createStatement();
-         
-			// Create the table.
-			stmt.execute("CREATE TABLE Computer (" +
-   				       "Description CHAR(25), " +
-                      "ProdNum CHAR(10) NOT NULL PRIMARY KEY, " +
-                      "Price DOUBLE " +
-                      ")");
-							 
+			Statement stmt = conn.createStatement();
+			stmt.execute("CREATE TABLE IF NOT EXISTS Computer (" +
+					"Description CHAR(25), " +
+					"ProdNum CHAR(10) NOT NULL PRIMARY KEY, " +
+					"Price DOUBLE " +
+					")");
+			stmt.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Computer table already exists.");
+		}
+		try
+		{
+			Statement stmt = conn.createStatement();
 			// Insert row #1.
 			stmt.execute("INSERT INTO Computer VALUES ( " +
                       "'Bolivian Dark', " +

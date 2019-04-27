@@ -1,0 +1,8 @@
+create table PRESET
+(
+	PRESET_ID INTEGER
+		constraint PRESET_PK
+			primary key,
+	PRESET_NAME VARCHAR(50) not null
+);
+

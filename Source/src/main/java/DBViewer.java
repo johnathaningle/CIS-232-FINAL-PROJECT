@@ -91,6 +91,7 @@ public class DBViewer extends Application
             ResultSetMetaData meta = resultSet.getMetaData();
             
             // Create a string to hold the results
+            // Create a string to hold the results
             String output = "";
             
             // Get the results.

@@ -20,9 +20,6 @@ public class ComputerDBManager
         // Create a connection to the database.
         Connection conn = DriverManager.getConnection(DB_URL);
 
-        // Create a connection to the database.
-        conn = DriverManager.getConnection(DB_URL);
-
         // Create a Statement object for the query.
         Statement stmt =
                 conn.createStatement(
