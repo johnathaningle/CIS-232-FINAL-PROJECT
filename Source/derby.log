@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue Apr 30 08:31:52 EDT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-016a-6e3a-dac3-00000e1c4a18 
+Tue Apr 30 09:47:13 EDT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-016a-6e7f-c810-00000d694db8 
 on database directory G:\SCHOOL\CIS-232\CIS-232-FINAL-PROJECT\Source\ComputerDB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/Johnathan%20Ingle/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.14.1.0/3bcd8b1af3f8cd022d54d331e00064776be04f9c/derby-10.14.1.0.jar
 java.vendor=Oracle Corporation

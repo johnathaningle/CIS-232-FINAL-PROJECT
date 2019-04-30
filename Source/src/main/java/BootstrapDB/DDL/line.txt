@@ -1,0 +1,11 @@
+create table LINE
+(
+	ORDER_ID INTEGER
+		constraint LINE_ORDER_ORDER_ID_FK
+			references "ORDER",
+	PART_ID INTEGER
+		constraint LINE_PART_PART_ID_FK
+			references PART,
+	unique (ORDER_ID, PART_ID)
+);
+
