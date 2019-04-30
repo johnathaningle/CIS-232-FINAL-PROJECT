@@ -1,25 +1,17 @@
-import BootstrapDB.BootstrapDB;
-import Controllers.PartController;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-public class Main {
+public class Main extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        MainGUI gui = new MainGUI(primaryStage);
+        gui.buildGUI();
+        primaryStage.show();
+    }
     public static void main(String[] args) {
 //        BootstrapDB bootstrapDB = new BootstrapDB();
 //        bootstrapDB.ResetDatabase();
-        PartController partController = new PartController();
-        ArrayList<HashMap> parts = partController.getParts();
-        for(HashMap part : parts) {
-            Iterator it = part.entrySet().iterator();
-            while(it.hasNext()) {
-                Map.Entry pair = (Map.Entry)it.next();
-                System.out.println(pair.getKey().toString() + ": " + pair.getValue().toString());
-            }
-        }
-
+        launch(args);
 
     }
 }

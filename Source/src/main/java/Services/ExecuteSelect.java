@@ -10,7 +10,7 @@ public class ExecuteSelect {
     private Config _config = new Config();
 
     public ArrayList execute(String query) {
-        ArrayList result = new ArrayList();
+        ArrayList<HashMap<String, String>> result = new ArrayList<>();
         try {
             DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         } catch (Exception e) {
@@ -38,6 +38,7 @@ public class ExecuteSelect {
 
         } catch (Exception e) {
             System.out.println(e);
+            result = null;
         }
         return result;
     }

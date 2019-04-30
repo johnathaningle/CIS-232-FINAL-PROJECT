@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sat Apr 27 13:41:18 EDT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-016a-5fe3-0dc7-00000e438638 
-on database directory F:\SCHOOL\CIS-232\CIS-232-FINAL-PROJECT\Source\ComputerDB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
-Loaded from file:/C:/Users/jingl/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.14.1.0/3bcd8b1af3f8cd022d54d331e00064776be04f9c/derby-10.14.1.0.jar
+Tue Apr 30 08:31:52 EDT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-016a-6e3a-dac3-00000e1c4a18 
+on database directory G:\SCHOOL\CIS-232\CIS-232-FINAL-PROJECT\Source\ComputerDB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/C:/Users/Johnathan%20Ingle/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.14.1.0/3bcd8b1af3f8cd022d54d331e00064776be04f9c/derby-10.14.1.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_201-b09
-user.dir=F:\SCHOOL\CIS-232\CIS-232-FINAL-PROJECT\Source
+user.dir=G:\SCHOOL\CIS-232\CIS-232-FINAL-PROJECT\Source
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
