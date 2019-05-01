@@ -34,7 +34,6 @@ public class ExecuteSelect {
             }
             statement.close();
             con.close();
-            System.out.println("Done");
 
         } catch (Exception e) {
             System.out.println(e);
