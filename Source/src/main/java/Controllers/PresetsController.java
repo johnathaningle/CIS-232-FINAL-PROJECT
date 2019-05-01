@@ -11,7 +11,7 @@ public class PresetsController {
     public PresetsController() {
         _ec = new ExecuteSelect();
         @SuppressWarnings("unchecked")
-        ArrayList<HashMap<String, String>> presets = _ec.execute("SELECT * FROM APP.PRESETS");
+        ArrayList<HashMap<String, String>> presets = _ec.execute("SELECT * FROM PRESET");
         _presetsQuery = presets;
     }
 
