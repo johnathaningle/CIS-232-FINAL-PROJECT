@@ -1,10 +1,6 @@
 create table PRESET_PART
 (
-	PRESET_ID INTEGER
-		constraint PRESET_PART_PRESET_PRESET_ID_FK
-			references PRESET,
+	PRESET_ID INTEGER,
 	PART_ID INTEGER
-		constraint PRESET_PART_PART_PART_ID_FK
-			references PART
 );
 
