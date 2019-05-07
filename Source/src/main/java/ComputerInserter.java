@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.sql.*;
 
 /**
- * This program lets the user insert a row into the ComputerDB database's Computer table
+ * This program lets the user execute a row into the ComputerDB database's Computer table
  */
 public class ComputerInserter {
     public static void main(String[] args) {

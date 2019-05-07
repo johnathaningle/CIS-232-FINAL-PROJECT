@@ -5,13 +5,14 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
-        MainGUI gui = new MainGUI(primaryStage);
+        MainGUI gui = new MainGUI();
+        gui.SetMainGuiStage(primaryStage);
         gui.buildGUI();
         primaryStage.show();
     }
     public static void main(String[] args) {
-        BootstrapDB bootstrapDB = new BootstrapDB();
-        bootstrapDB.ResetDatabase();
+//        BootstrapDB bootstrapDB = new BootstrapDB();
+//        bootstrapDB.ResetDatabase();
         launch(args);
 
     }

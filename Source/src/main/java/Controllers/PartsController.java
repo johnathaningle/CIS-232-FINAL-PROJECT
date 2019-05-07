@@ -21,6 +21,7 @@ public class PartsController {
         _partsArray = partsQuery;
     }
 
+    // {PART_NAME=NVIDIA GeForce 900, PART_PRICE=199.99, PART_FORM_FACTOR=Desktop, PART_ID=1} <= list of these
     public ArrayList<HashMap<String, String >> getParts() {
         return _partsArray;
     }
@@ -52,5 +53,28 @@ public class PartsController {
             }
         }
         return price;
+    }
+
+    public ArrayList getPartAttributes(int partId) {
+        @SuppressWarnings("unchecked")
+        ArrayList partAttributes =
+                _es.execute("SELECT * FROM " +
+                                "PART_ATTRIBUTE WHERE PART_ID = " + partId);
+        return partAttributes;
+    }
+
+    public int getPartId(String partName) {
+        String query = "SELECT PART_ID FROM PART WHERE PART_NAME = '"+partName+"'";
+        ArrayList<HashMap<String, String>> queryResult = _es.execute(query);
+        try {
+            HashMap<String, String> partInfoHashmap = queryResult.get(0);
+            System.out.println("SUCCESS: "+query);
+            return Integer.parseInt(partInfoHashmap.values().toArray()[0].toString());
+        //if there is no part returned from the query queryResult.get will throw an error
+        //send back -99 to indicate no part found.
+        } catch (IndexOutOfBoundsException ex) {
+            System.out.println("COULD NOT FIND PART: "+ partName);
+            return -99;
+        }
     }
 }

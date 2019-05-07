@@ -1,10 +1,10 @@
 create table "ORDER"
 (
-	ORDER_ID INTEGER
-		constraint ORDER_PK
+	ORDER_ID int generated always as identity
+		constraint ORDER_pk
 			primary key,
-	CUSTOMER_ID INTEGER
-		constraint ORDER_CUSTOMER_CUSTOMER_ID_FK
-			references CUSTOMER
+	CUSTOMER_ID int not null
+		constraint ORDER_CUSTOMER_CUSTOMER_ID_fk
+			references CUSTOMER,
+	ORDER_PAID boolean default false not null
 );
-
