@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9f9ea81-bd6a-4e14-826c-3e613475e86f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/OrdersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/ExecuteUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/line.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/order_line.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/order.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/6_APP_LINE.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/6_APP_LINE.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ComputerInserter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComputerInserter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/OrderController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/PartsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/PartsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoffeeDB/README_DO_NOT_TOUCH_FILES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoffeeDB/log/README_DO_NOT_TOUCH_FILES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoffeeDB/seg0/README_DO_NOT_TOUCH_FILES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoffeeDB/service.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DBTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DBTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/ExecuteInsert.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/ExecuteSelect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/ExecuteSelect.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -33,43 +24,52 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CoffeeDBDemo" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/OrdersController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="2652">
               <caret line="160" selection-start-line="160" selection-end-line="160" />
-              <folding>
-                <element signature="method#getAllCustomerOrders#0;class#OrderController#0" />
-                <element signature="e#664#694#1" expanded="true" />
-                <element signature="method#getCustomerOrders#0;class#OrderController#0" />
-                <element signature="e#4352#4382#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DBTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DBTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MainGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="55" column="73" selection-start-line="55" selection-start-column="73" selection-end-line="55" selection-end-column="73" />
+            <state relative-caret-position="747">
+              <caret line="251" column="31" selection-start-line="251" selection-start-column="31" selection-end-line="251" selection-end-column="31" />
               <folding>
-                <element signature="e#877#878#0" expanded="true" />
-                <element signature="e#907#908#0" expanded="true" />
-                <element signature="e#951#952#0" expanded="true" />
-                <element signature="e#994#995#0" expanded="true" />
-                <element signature="method#buildDashboard#0;class#MainGUI#0" />
+                <element signature="method#buildLogin#0;class#MainGUI#0" />
+                <element signature="method#buildAdminOrders#0;class#MainGUI#0" />
+                <element signature="method#buildAdminParts#0;class#MainGUI#0" />
               </folding>
             </state>
           </provider>
@@ -78,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteGeneric.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="17" selection-start-column="17" selection-end-column="17" />
+            <state relative-caret-position="255">
+              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -87,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ComputerDeleter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="393">
               <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
             </state>
           </provider>
@@ -96,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" selection-start-line="13" selection-start-column="2" selection-end-line="14" selection-end-column="38" />
+            <state relative-caret-position="102">
+              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -105,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteSelect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
+            <state relative-caret-position="663">
               <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
@@ -130,6 +130,8 @@
       <find>getcu</find>
       <find>spacing</find>
       <find>_ei</find>
+      <find>SetG</find>
+      <find>SetMain</find>
     </findStrings>
     <replaceStrings>
       <replace>Computer</replace>
@@ -179,19 +181,18 @@
         <option value="$PROJECT_DIR$/src/main/java/Services/ExecuteInsert.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/ExecuteUpdate.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MainGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/OrderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/ExecuteSelect.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/PartsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/DBTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MainGUI.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -201,52 +202,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="CoffeeDBDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ComputerDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="Source" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="CoffeeDBDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Source" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CoffeeDBDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ComputerDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="Source" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="CoffeeDBDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ComputerDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="Source" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CoffeeDBDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ComputerDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="Source" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CoffeeDBDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Source" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -256,9 +241,9 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="true" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToSymbol.includeLibraries" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557229275546" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557324259783" />
+    <property name="last_opened_file_path" value="E:/GREG/CIS232_FinalProject" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -275,7 +260,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DBTests">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="CreateComputerDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CreateComputerDB" />
       <module name="CoffeeDBDemo.main" />
@@ -313,8 +298,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DBTests" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.DBTests" />
         <item itemvalue="Application.DBViewer" />
         <item itemvalue="Application.CreateComputerDB" />
         <item itemvalue="Application.ShowComputers" />
@@ -336,8 +321,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15973154" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22147651" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -349,7 +335,7 @@
       <window_info id="Job Explorer" order="9" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719547" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.42634562" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.04249292" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -371,15 +357,13 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="sbt" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Gradle" order="7" />
+      <window_info anchor="right" id="Gradle" order="7" weight="0.3295302" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Database" order="10" />
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ComputerDB.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Test" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/event/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -588,33 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" selection-start-line="13" selection-start-column="2" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteSelect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/OrdersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-          <folding>
-            <element signature="method#getAllCustomerOrders#0;class#OrderController#0" />
-            <element signature="e#664#694#1" expanded="true" />
-            <element signature="method#getCustomerOrders#0;class#OrderController#0" />
-            <element signature="e#4352#4382#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/PartsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -622,38 +579,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteSelect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testdoc.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteGeneric.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ComputerDeleter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="393">
           <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteGeneric.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/OrdersController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        <state relative-caret-position="2652">
+          <caret line="160" selection-start-line="160" selection-end-line="160" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MainGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="55" column="73" selection-start-line="55" selection-start-column="73" selection-end-line="55" selection-end-column="73" />
-          <folding>
-            <element signature="e#877#878#0" expanded="true" />
-            <element signature="e#907#908#0" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#994#995#0" expanded="true" />
-            <element signature="method#buildDashboard#0;class#MainGUI#0" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DBTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
+        <state>
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MainGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="251" column="31" selection-start-line="251" selection-start-column="31" selection-end-line="251" selection-end-column="31" />
+          <folding>
+            <element signature="method#buildLogin#0;class#MainGUI#0" />
+            <element signature="method#buildAdminOrders#0;class#MainGUI#0" />
+            <element signature="method#buildAdminParts#0;class#MainGUI#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -697,7 +679,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8.0_201</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -709,7 +691,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>main|CoffeeDBDemo</last-edited>
+          <last-edited>CoffeeDBDemo</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

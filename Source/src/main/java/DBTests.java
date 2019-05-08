@@ -9,8 +9,8 @@ import java.util.HashMap;
 
 public class DBTests {
     public static void main(String[] args) {
-//        BootstrapDB bootstrapDB = new BootstrapDB();
-//        bootstrapDB.ResetDatabase();
+        BootstrapDB bootstrapDB = new BootstrapDB();
+        bootstrapDB.ResetDatabase();
         //init the controllers
         PartsController partsController = new PartsController();
         PresetsController presetsController = new PresetsController();
