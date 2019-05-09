@@ -33,6 +33,12 @@ public class MainGUI {
     private CustomersController _customersController;
     private PresetsController _presetsController;
 
+    //values for keeping track of the user
+    private String currentUsername;
+    private int currentUserId;
+    private int currentOrderId;
+
+
     public MainGUI() {
         _loggedin = false;
         _partsController = new PartsController();
@@ -75,22 +81,11 @@ public class MainGUI {
             String pw = passwordTF.getText();
             String un = usernameTF.getText();
             if(_customersController.login(un, pw)) {
+                currentUserId = _customersController.getCurrentCustomerId();
                 buildDashboard();
             }
         });
         Button signUpButton = new Button("Create An Account");
-
-        //set login button and signUp button on action
-        loginButton.setOnAction(event -> {
-            String username = usernameTF.getText();
-            String password = passwordTF.getText();
-
-
-            errorLabel.setText("Username not find");
-            errorLabel.setText("Incorrect password");
-
-            buildDashboard();
-        });
 
         signUpButton.setOnAction(event ->{
             buildAccount();
@@ -178,9 +173,15 @@ public class MainGUI {
         logoView.setFitWidth(80);
 
         //create a button for finishing creating an account
+        Button backToLogin = new Button("Back to login");
+        backToLogin.setOnAction(event -> {
+            updateScene(buildLogin());
+        });
+
         Button creatA = new Button("Create Account");
         //set on action
         creatA.setOnAction(event ->{
+            System.out.println("Creating Account...");
             String firstName = firstNameTF.getText();
             String lastName = lastNameTF.getText();
             String phoneNumber = phoneTF.getText();
@@ -194,7 +195,6 @@ public class MainGUI {
 
             confirmMsg.setText(" ");
             passwordInfo.setId(" ");
-
             if(newPassword.length()<8){
                 passwordInfo.setId("errorLabel");
             }
@@ -218,16 +218,31 @@ public class MainGUI {
                     passwordInfo.setId("errorLabel");
                 }
             }
-
+            int zip;
             if(!newPassword.equals(confirmTF.getText())){
                 confirmMsg.setText("Passwords do not match.");
                 confirmMsg.setId("errorLabel");
             }
+            try {
+                zip = Integer.parseInt(zipCode);
+            } catch (Exception e) {
+                System.out.println("Cannot parse zip code");
+                zip = 12345;
+            }
+
+            //make sure that everything went smoothly with the registration
+            if(!_customersController.register
+                    (firstName, lastName, phoneNumber, email, street, city, stateStr, zip
+                            , newUsername, newPassword)) {
+                confirmMsg.setText("Error During Registration");
+                confirmMsg.setId("errorLabel");
+            } else {
+                System.out.println("Successfully Created User");
+                JOptionPane.showMessageDialog(null,"Account Created");
+                updateScene(buildLogin());
+            }
 
         });
-
-
-
 
         HBox row1 = new HBox(SPACING+10,logoView,title);
         row1.setAlignment(Pos.CENTER_LEFT);
@@ -247,7 +262,7 @@ public class MainGUI {
         HBox confirmRow = new HBox(confirmPasswordLabel,confirmTF);
 
         VBox main = new VBox(SPACING,row1,infoLabel,contactInfo,nameRow,phoneRow,emailRow,address,addressRow,addressRow2,
-                loginInfo,usernameRow,passwordRow,passwordInfo,confirmRow,confirmMsg,creatA);
+                loginInfo,usernameRow,passwordRow,passwordInfo,confirmRow,confirmMsg,creatA, backToLogin);
         main.setPadding(new Insets(SPACING, SPACING, SPACING, SPACING));
 
         Scene account = new Scene(main);
@@ -382,7 +397,7 @@ public class MainGUI {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 int presetId = Integer.parseInt(newValue.split(":")[0]);
-                presetPartsListView.refresh();
+                presetPartsListView.getItems().clear();
                 ArrayList<String> partNames = _presetsController.getPresetParts(presetId);
                 presetPartsListView.getItems().addAll(partNames);
             }
@@ -400,6 +415,14 @@ public class MainGUI {
         //create the listview to display the list of parts in each preset
 
         HBox presetsContainer = new HBox(SPACING, presetListView, presetPartsListView);
+
+        Button addAllToCart = new Button("Add All to Cart");
+        addAllToCart.setOnAction(event -> {
+            Object[] partsList = presetPartsListView.getItems().toArray();
+            for(Object o : partsList) {
+
+            }
+        });
 
         Button removeFromCart = new Button("Remove From Cart");
         Button clearCart = new Button("Clear");

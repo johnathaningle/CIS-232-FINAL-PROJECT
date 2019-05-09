@@ -2,17 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9f9ea81-bd6a-4e14-826c-3e613475e86f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/01_APP_CUSTOMER.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BootstrapDB/BootstrapDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BootstrapDB/BootstrapDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/customer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/customer.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/0_APP_CUSTOMER.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/1_APP_ORDER.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/02_APP_ORDER.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/PresetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/PresetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ComputerDBManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ComputerDeleter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ComputerInserter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ComputerMinPrice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ComputerUpdater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/CustomersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/CustomersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateComputerDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateCustomerTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateUnpaidOrderTable.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DBTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DBTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DBViewer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/ExecuteGeneric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/ExecuteGeneric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MetaDataDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/OrderEntrySystem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/ExecuteUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/ExecuteUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShowComputerRow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ShowComputers.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -48,10 +57,41 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/customer.txt">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CustomersController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+            <state relative-caret-position="320">
+              <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DBTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1220">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MainGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="78" column="49" lean-forward="true" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
+              <folding>
+                <element signature="e#1571#1572#0" expanded="true" />
+                <element signature="e#1601#1602#0" expanded="true" />
+                <element signature="e#1646#1647#0" expanded="true" />
+                <element signature="e#1689#1690#0" expanded="true" />
+                <element signature="e#5817#5825#0" expanded="true" />
+                <element signature="method#buildOrderPresets#0;class#MainGUI#0" />
+                <element signature="method#buildAdminOrders#0;class#MainGUI#0" />
+                <element signature="method#buildAdminParts#0;class#MainGUI#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,73 +106,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/BootstrapDB.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="71" column="76" selection-start-line="71" selection-start-column="76" selection-end-line="71" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/02_APP_ORDER.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="46" selection-start-column="46" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/preset_part.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/preset.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/part_attribute.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/order_line.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="10" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/part.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="8" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/order.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="10" />
+            <state relative-caret-position="160">
+              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -161,6 +138,7 @@
       <find>_pc</find>
       <find>presets</find>
       <find>css</find>
+      <find>creatA</find>
     </findStrings>
     <replaceStrings>
       <replace>Computer</replace>
@@ -207,21 +185,22 @@
         <option value="$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/6_APP_LINE.sql" />
         <option value="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/order_line.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Services/ExecuteInsert.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Services/ExecuteUpdate.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/OrderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Services/ExecuteSelect.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/PartsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DBTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/PresetsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/login.css" />
-        <option value="$PROJECT_DIR$/src/main/java/MainGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/0_APP_CUSTOMER.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/01.TXT" />
-        <option value="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/customer.txt" />
         <option value="$PROJECT_DIR$/src/main/java/Services/ExecuteGeneric.java" />
         <option value="$PROJECT_DIR$/src/main/java/BootstrapDB/BootstrapDB.java" />
         <option value="$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/02_APP_ORDER.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/Services/ExecuteUpdate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/customer.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/DBTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/CustomersController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MainGUI.java" />
       </list>
     </option>
   </component>
@@ -279,15 +258,6 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="BootstrapDB" type="462c0819:PsiDirectoryNode" />
-              <item name="DDL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ComputerDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Source" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="BootstrapDB" type="462c0819:PsiDirectoryNode" />
               <item name="INSERT" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -296,7 +266,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -312,7 +282,7 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="true" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToSymbol.includeLibraries" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557401576718" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557406994416" />
     <property name="last_opened_file_path" value="E:/GREG/CIS232_FinalProject" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -394,7 +364,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22483222" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22483222" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -406,7 +376,7 @@
       <window_info id="Job Explorer" order="9" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719547" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34844193" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34844193" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -435,45 +405,12 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/CreateUnpaidOrderTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="38" column="64" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MetaDataDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ShowComputerRow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ShowComputers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CreateUnpaidOrderTable.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/MetaDataDemo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ShowComputerRow.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ShowComputers.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Models/Customer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/CreateComputerDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="243" column="5" selection-start-line="243" selection-start-column="5" selection-end-line="243" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CreateComputerDB.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Services/ConnectionService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Services/DataContextService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Models/Part.java" />
@@ -488,45 +425,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CodeStyleCheckTool.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ComputerDBManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DBViewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="69" column="25" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/OrderEntrySystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ComputerDBManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/DBViewer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/OrderEntrySystem.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/MainGuiComponents.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CustomersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ComputerInserter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ComputerInserter.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/3_APP_PRESET.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -550,17 +453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="13" selection-start-column="13" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteUpdate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding>
-            <element signature="e#180#181#0" expanded="true" />
-            <element signature="e#218#219#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -596,40 +488,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ComputerDeleter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2020">
-          <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ComputerDeleter.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteSelect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MainGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
-          <folding>
-            <element signature="method#buildAccount#0;class#MainGUI#0" />
-            <element signature="method#buildDashboard#0;class#MainGUI#0" />
-            <element signature="method#buildOrderCreator#0;class#MainGUI#0" />
-            <element signature="method#buildAdminParts#0;class#MainGUI#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DBTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="58" column="42" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -640,16 +503,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" selection-start-line="13" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/MAIN.SQL">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/MAIN.SQL" />
     <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/order.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -685,27 +539,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/01.TXT">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/customer.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/01_APP_CUSTOMER.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/01.TXT" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteGeneric.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -720,9 +554,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Services/ExecuteUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding>
+            <element signature="e#180#181#0" expanded="true" />
+            <element signature="e#218#219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/DDL/customer.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/BootstrapDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
+        <state relative-caret-position="140">
           <caret line="71" column="76" selection-start-line="71" selection-start-column="76" selection-end-line="71" selection-end-column="76" />
         </state>
       </provider>
@@ -731,6 +583,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="46" selection-start-column="46" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BootstrapDB/INSERT/01_APP_CUSTOMER.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DBTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1220">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/CustomersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MainGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="78" column="49" lean-forward="true" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
+          <folding>
+            <element signature="e#1571#1572#0" expanded="true" />
+            <element signature="e#1601#1602#0" expanded="true" />
+            <element signature="e#1646#1647#0" expanded="true" />
+            <element signature="e#1689#1690#0" expanded="true" />
+            <element signature="e#5817#5825#0" expanded="true" />
+            <element signature="method#buildOrderPresets#0;class#MainGUI#0" />
+            <element signature="method#buildAdminOrders#0;class#MainGUI#0" />
+            <element signature="method#buildAdminParts#0;class#MainGUI#0" />
+          </folding>
         </state>
       </provider>
     </entry>

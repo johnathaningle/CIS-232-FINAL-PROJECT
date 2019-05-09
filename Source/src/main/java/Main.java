@@ -11,8 +11,8 @@ public class Main extends Application {
         primaryStage.show();
     }
     public static void main(String[] args) {
-        BootstrapDB bootstrapDB = new BootstrapDB();
-        bootstrapDB.ResetDatabase();
+//        BootstrapDB bootstrapDB = new BootstrapDB();
+//        bootstrapDB.ResetDatabase();
         launch(args);
 
     }
