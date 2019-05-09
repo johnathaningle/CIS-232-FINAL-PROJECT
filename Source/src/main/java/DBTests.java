@@ -47,26 +47,30 @@ public class DBTests {
         System.out.println(partsController.getPartId("Samsung SSD"));
 
         //get preset names
-        ArrayList<String> presetNames = new ArrayList<>();
-        ArrayList<HashMap<String, String>> presets = presetsController.getPresets();
-        for (HashMap h : presets) {
-            String presetId = h.get("PRESET_ID").toString();
-            String presetName = h.get("PRESET_NAME").toString();
-            presetNames.add(presetId+ ": " + presetName);
-        }
+//        ArrayList<String> presetNames = new ArrayList<>();
+//        ArrayList<HashMap<String, String>> presets = presetsController.getPresets();
+//        for (HashMap h : presets) {
+//            String presetId = h.get("PRESET_ID").toString();
+//            String presetName = h.get("PRESET_NAME").toString();
+//            presetNames.add(presetId+ ": " + presetName);
+//        }
 
         //get the parts for a preset
         presetsController.getPresetParts(4);
 //        ArrayList<HashMap<String, String>> presetParts = presetsController.getPresetParts();
 
         //try to register a user
-        if(customersController.register("John", "Ingle", "123-123-1234", "test@email.com",
-                "123 Main Street", "Hunna Hunna", "Iowa", 21123, "jingle", "password")) {
-            System.out.println("Customer successfully registered");
-        } else {
-            System.out.println("There was a problem registering the user...");
-        }
+//        if(customersController.register("John", "Ingle", "123-123-1234", "test@email.com",
+//                "123 Main Street", "Hunna Hunna", "Iowa", 21123, "jingle", "password")) {
+//            System.out.println("Customer successfully registered");
+//        } else {
+//            System.out.println("There was a problem registering the user...");
+//        }
 
+        //GET THE PARTS FOR ONE ORDER
+        ordersController.getOrderParts(1, 1);
 
+        //get the orderid for a customer that is empty
+        System.out.println(ordersController.getEmptyCustomerOrderId(1));
     }
 }
