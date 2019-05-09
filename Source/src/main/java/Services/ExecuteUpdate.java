@@ -12,7 +12,7 @@ public class ExecuteUpdate {
         _config = new Config();
     }
 
-    public void execute(String query) {
+    public boolean execute(String query) {
         try {
             DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         } catch (Exception e) {
@@ -25,8 +25,10 @@ public class ExecuteUpdate {
             statement.executeUpdate(query);
             statement.close();
             con.close();
+            return true;
         } catch (Exception e) {
             System.out.println(e);
+            return false;
         }
     }
 }

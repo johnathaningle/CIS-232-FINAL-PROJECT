@@ -59,6 +59,14 @@ public class DBTests {
         presetsController.getPresetParts(4);
 //        ArrayList<HashMap<String, String>> presetParts = presetsController.getPresetParts();
 
+        //try to register a user
+        if(customersController.register("John", "Ingle", "123-123-1234", "test@email.com",
+                "123 Main Street", "Hunna Hunna", "Iowa", 21123, "jingle", "password")) {
+            System.out.println("Customer successfully registered");
+        } else {
+            System.out.println("There was a problem registering the user...");
+        }
+
 
     }
 }
