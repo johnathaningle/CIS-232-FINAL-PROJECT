@@ -4,13 +4,14 @@ import Controllers.OrdersController;
 import Controllers.PartsController;
 import Controllers.PresetsController;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DBTests {
     public static void main(String[] args) {
-        BootstrapDB bootstrapDB = new BootstrapDB();
-        bootstrapDB.ResetDatabase();
+//        BootstrapDB bootstrapDB = new BootstrapDB();
+//        bootstrapDB.ResetDatabase();
         //init the controllers
         PartsController partsController = new PartsController();
         PresetsController presetsController = new PresetsController();
@@ -44,6 +45,19 @@ public class DBTests {
 
         //get the id of a part
         System.out.println(partsController.getPartId("Samsung SSD"));
+
+        //get preset names
+        ArrayList<String> presetNames = new ArrayList<>();
+        ArrayList<HashMap<String, String>> presets = presetsController.getPresets();
+        for (HashMap h : presets) {
+            String presetId = h.get("PRESET_ID").toString();
+            String presetName = h.get("PRESET_NAME").toString();
+            presetNames.add(presetId+ ": " + presetName);
+        }
+
+        //get the parts for a preset
+        presetsController.getPresetParts(4);
+//        ArrayList<HashMap<String, String>> presetParts = presetsController.getPresetParts();
 
 
     }

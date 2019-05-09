@@ -1,12 +1,17 @@
 import Controllers.CustomersController;
 import Controllers.OrdersController;
 import Controllers.PartsController;
+import Controllers.PresetsController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -23,14 +28,17 @@ public class MainGUI {
     final int LV_HEIGHT = 75;
     private boolean _loggedin;
     private Stage _stage;
-    private PartsController _pc;
-    private OrdersController _oc;
-    private CustomersController _cc;
+    private PartsController _partsController;
+    private OrdersController _ordersController;
+    private CustomersController _customersController;
+    private PresetsController _presetsController;
+
     public MainGUI() {
         _loggedin = false;
-        _pc = new PartsController();
-        _oc = new OrdersController();
-        _cc = new CustomersController();
+        _partsController = new PartsController();
+        _ordersController = new OrdersController();
+        _customersController = new CustomersController();
+        _presetsController = new PresetsController();
     }
 
     public void SetMainGuiStage(Stage stage) {
@@ -47,25 +55,204 @@ public class MainGUI {
     }
 
     private Scene buildLogin() {
-        Label title = new Label("Login to Computer Ordering System");
-        TextField username = new TextField("Username");
-        PasswordField password = new PasswordField();
+        Label title = new Label("BestPrice");
+        Label title2 = new Label("Please login to order your computer parts\nor review your pevious orders.");
+        Label usernameLabel = new Label("Username");
+        Label passwordLabel = new Label("Password");
+        Label errorLabel = new Label(" ");
+        errorLabel.setId("errorLabel");
+
+        Image logo = new Image("file:/main/java/bestPriceLogo.png");
+        ImageView logoView = new ImageView(logo);
+        logoView.setFitHeight(100);
+        logoView.setFitWidth(100);
+
+        TextField usernameTF = new TextField();
+        PasswordField passwordTF = new PasswordField();
+
         Button loginButton = new Button("Login");
         loginButton.setOnAction(event -> {
-            String pw = password.getText();
-            String un = username.getText();
-            if(_cc.login(un, pw)) {
-                JOptionPane.showMessageDialog(null,"You are now logged in");
+            String pw = passwordTF.getText();
+            String un = usernameTF.getText();
+            if(_customersController.login(un, pw)) {
                 buildDashboard();
-            } else {
-                JOptionPane.showMessageDialog(null,"Incorrect Login Credentials");
+            }
+        });
+        Button signUpButton = new Button("Create An Account");
+
+        //set login button and signUp button on action
+        loginButton.setOnAction(event -> {
+            String username = usernameTF.getText();
+            String password = passwordTF.getText();
+
+
+            errorLabel.setText("Username not find");
+            errorLabel.setText("Incorrect password");
+
+            buildDashboard();
+        });
+
+        signUpButton.setOnAction(event ->{
+            buildAccount();
+        });
+
+        //display
+        title.setStyle("-fx-font-size: 25pt");
+        HBox titleH = new HBox(SPACING,logoView,title);
+        titleH.setAlignment(Pos.CENTER);
+        VBox titleV = new VBox(titleH,title2);
+        VBox usernameV = new VBox(usernameLabel,usernameTF);
+        VBox passwordV = new VBox(passwordLabel,passwordTF);
+        HBox buttonH = new HBox(SPACING,loginButton,signUpButton);
+        buttonH.setAlignment(Pos.CENTER_RIGHT);
+        VBox mainContainer = new VBox(SPACING, titleV, errorLabel, usernameV, passwordV, buttonH);
+        mainContainer.setPadding(new Insets(SPACING, SPACING, SPACING, SPACING));
+
+        Scene scene =  new Scene(mainContainer);
+        scene.getStylesheets().add("file:../src/main/java/login.css");
+        return scene;
+    }
+
+    public void buildAccount(){
+        //Labels
+        Label title = new Label("Creating An Account");
+        Label infoLabel = new Label("Please fill out the fields below: ");
+        Label contactInfo = new Label("Contact Information");
+        Label firstNameLabel = new Label("First Name: ");
+        Label lastNameLabel = new Label("Last Name: ");
+        Label phoneLabel = new Label("Phone Number: ");
+        Label emailLabel = new Label("Email: ");
+        Label address = new Label("Address ");
+        Label streetLabel = new Label("Street: ");
+        Label cityLabel = new Label("City: ");
+        Label stateLabel = new Label("State: ");
+        Label zipCodeLabel = new Label("Zip code: ");
+        Label loginInfo = new Label("Login Information");
+        Label usernameLabel = new Label("Username: ");
+        Label passwordLabel = new Label("Password: ");
+        Label passwordInfo = new Label("* Password must contain at least 8 characters, " +
+                "1 number, and 1 special character.");
+        Label confirmPasswordLabel = new Label("Confirm Password: ");
+        Label confirmMsg = new Label(" ");
+
+        //change the style of the titles
+        title.setStyle("-fx-font-size: 20pt; -fx-font-weight: bold");
+        contactInfo.setId("title");
+        address.setId("title");
+        loginInfo.setId("title");
+
+        //textFields
+        TextField firstNameTF = new TextField();
+        TextField lastNameTF = new TextField();
+        TextField phoneTF = new TextField();
+        TextField emailTF = new TextField();
+        TextField streetTF = new TextField();
+        TextField cityTF = new TextField();
+        TextField zipCodeTF = new TextField();
+        TextField usernameTF = new TextField();
+        PasswordField passwordTF = new PasswordField();
+        PasswordField confirmTF = new PasswordField();
+
+        //set textFields' size
+        emailTF.setPrefSize(300,10);
+        streetTF.setPrefSize(250,10);
+
+        //create the state options
+        ArrayList<String> state = new ArrayList<String>();
+        String[] s = {"Alabama" ,"Alaska", "Arizona","Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+                "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+                "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota","Mississippi","Missouri",
+                "Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina",
+                "North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota",
+                "Tennessee", "Texas", "Utah", "Vermont", "Virginia","Washington","West Virginia","Wisconsin","Wyoming"};
+        for(int i = 0;i<s.length;i++){
+            state.add(s[i]);
+        }
+        ObservableList stateOL = FXCollections.observableArrayList(state);
+        ComboBox stateCB = new ComboBox(stateOL);
+
+        //create an image
+        Image logo = new Image("file:/bestPriceLogo.png");
+        ImageView logoView = new ImageView(logo);
+        logoView.setFitHeight(80);
+        logoView.setFitWidth(80);
+
+        //create a button for finishing creating an account
+        Button creatA = new Button("Create Account");
+        //set on action
+        creatA.setOnAction(event ->{
+            String firstName = firstNameTF.getText();
+            String lastName = lastNameTF.getText();
+            String phoneNumber = phoneTF.getText();
+            String email = emailTF.getText();
+            String street = streetTF.getText();
+            String city = cityTF.getText();
+            String stateStr = stateCB.getSelectionModel().getSelectedItem().toString();
+            String zipCode = zipCodeTF.getText();
+            String newUsername = usernameTF.getText();
+            String newPassword = passwordTF.getText();
+
+            confirmMsg.setText(" ");
+            passwordInfo.setId(" ");
+
+            if(newPassword.length()<8){
+                passwordInfo.setId("errorLabel");
+            }
+            else{
+                boolean specialChar = false;
+                boolean number = false;
+
+                for(int j=0;j < newPassword.length();j++){
+                    char c = newPassword.charAt(j);
+
+                    if(Character.isDigit(c)){
+                        number = true;
+                    };
+
+                    if(!Character.isLetter(c)){
+                        specialChar = true;
+                    }
+                }
+
+                if(!specialChar||!number){
+                    passwordInfo.setId("errorLabel");
+                }
             }
 
+            if(!newPassword.equals(confirmTF.getText())){
+                confirmMsg.setText("Passwords do not match.");
+                confirmMsg.setId("errorLabel");
+            }
 
         });
-        VBox mainContainer = new VBox(SPACING, title, username, password, loginButton);
-        mainContainer.setPadding(new Insets(SPACING, SPACING, SPACING, SPACING));
-        return new Scene(mainContainer);
+
+
+
+
+        HBox row1 = new HBox(SPACING+10,logoView,title);
+        row1.setAlignment(Pos.CENTER_LEFT);
+        HBox fnameRow = new HBox(firstNameLabel, firstNameTF);
+        HBox lnameRow = new HBox(lastNameLabel,lastNameTF);
+        HBox nameRow = new HBox(SPACING+10,fnameRow,lnameRow);
+        HBox emailRow = new HBox(emailLabel,emailTF);
+        HBox phoneRow = new HBox(phoneLabel,phoneTF);
+        HBox streetRow = new HBox(streetLabel,streetTF);
+        HBox cityRow = new HBox(cityLabel,cityTF);
+        HBox addressRow = new HBox(SPACING+10,streetRow,cityRow);
+        HBox zipRow = new HBox(zipCodeLabel,zipCodeTF);
+        HBox stateRow = new HBox(stateLabel,stateCB);
+        HBox addressRow2 = new HBox(SPACING+10,stateRow,zipRow);
+        HBox usernameRow = new HBox(usernameLabel,usernameTF);
+        HBox passwordRow = new HBox(passwordLabel,passwordTF);
+        HBox confirmRow = new HBox(confirmPasswordLabel,confirmTF);
+
+        VBox main = new VBox(SPACING,row1,infoLabel,contactInfo,nameRow,phoneRow,emailRow,address,addressRow,addressRow2,
+                loginInfo,usernameRow,passwordRow,passwordInfo,confirmRow,confirmMsg,creatA);
+        main.setPadding(new Insets(SPACING, SPACING, SPACING, SPACING));
+
+        Scene account = new Scene(main);
+        account.getStylesheets().add("file:/login.css");
+        updateScene(account);
     }
 
     private void buildDashboard() {
@@ -179,67 +366,47 @@ public class MainGUI {
     }
 
     private void buildOrderPresets() {
-        ListView<String> selectedPresets = new ListView<>();
         //Preset Interface Labels
         Label presetTitle = new Label("Presets");
 
         //Preset Interface formatting
         HBox presetTitleBox = new HBox(presetTitle);
         presetTitleBox.setAlignment(Pos.CENTER);
-        presetTitleBox.setPadding(new Insets(10));
+        presetTitleBox.setPadding(new Insets(SPACING));
 
-        Label preset1 = new Label("Preset1"); //replace "preset1 with database output.
-        Label preset2 = new Label("Preset2");
-        Label preset3 = new Label("Preset3");
-        Label presetParts1 = new Label("\u2022 parts from database (1) \n" +
-                "\u2022 parts from database (1) \n" +
-                "\u2022 parts from database (1)");
-        presetParts1.setPadding(new Insets(0,0,5,0));
-        Label presetParts2 = new Label("\u2022 parts from database (2) \n" +
-                "\u2022 parts from database (2) \n" +
-                "\u2022 parts from database (2)");
-        presetParts2.setPadding(new Insets(0,0,5,0));
-        Label presetParts3 = new Label("\u2022 parts from database (3) \n" +
-                "\u2022 parts from database (3) \n" +
-                "\u2022 parts from database (3)");
-        presetParts3.setPadding(new Insets(0,0,5,0));
-        Label presetPrice1 = new Label("[dynamic preset price]");
-        Label presetPrice2 = new Label("[dynamic preset price]");
-        Label presetPrice3 = new Label("[dynamic preset price]");
-        Label presetCart = new Label("Shopping Cart");
-        presetCart.setPadding(new Insets(0,0,5,0));
+        //listview for the list of presets
+        ListView<String> presetListView = new ListView<>();
+        //listview for the list of parts in each preset
+        ListView<String> presetPartsListView = new ListView<>();
+        presetListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                int presetId = Integer.parseInt(newValue.split(":")[0]);
+                presetPartsListView.refresh();
+                ArrayList<String> partNames = _presetsController.getPresetParts(presetId);
+                presetPartsListView.getItems().addAll(partNames);
+            }
+        });
+        //get preset names
+        ArrayList<String> presetNames = new ArrayList<>();
+        ArrayList<HashMap<String, String>> presets = _presetsController.getPresets();
+        for (HashMap h : presets) {
+            String presetId = h.get("PRESET_ID").toString();
+            String presetName = h.get("PRESET_NAME").toString();
+            presetNames.add(presetId+ ": " + presetName);
+        }
+        presetListView.getItems().addAll(presetNames);
 
-        //Preset Interface Buttons
-        Button addToCart1 = new Button("Add to Cart");
-        Button addToCart2 = new Button("Add to Cart");
-        Button addToCart3 = new Button("Add to Cart");
+        //create the listview to display the list of parts in each preset
+
+        HBox presetsContainer = new HBox(SPACING, presetListView, presetPartsListView);
+
         Button removeFromCart = new Button("Remove From Cart");
         Button clearCart = new Button("Clear");
         Button backToOrderPage = new Button("Back to Order Page");
         backToOrderPage.setOnAction(event -> {
             buildOrderCreator();
         });
-        HBox preset1Result = new HBox(presetPrice1,addToCart1);
-        preset1Result.setSpacing(5);
-        HBox preset2Result = new HBox(presetPrice2,addToCart2);
-        preset2Result.setSpacing(5);
-        HBox preset3Result = new HBox(presetPrice3,addToCart3);
-        preset3Result.setSpacing(5);
-        VBox presetBox1 = new VBox(preset1,presetParts1,preset1Result);
-        preset1Result.setAlignment(Pos.CENTER);
-        VBox presetBox2 = new VBox(preset2,presetParts2,preset2Result);
-        preset2Result.setAlignment(Pos.CENTER);
-        VBox presetBox3 = new VBox(preset3,presetParts3,preset3Result);
-        preset3Result.setAlignment(Pos.CENTER);
-        HBox presetDisplay = new HBox(presetBox1,presetBox2,presetBox3);
-        presetDisplay.setSpacing(20);
-        presetDisplay.setAlignment(Pos.CENTER);
-        presetDisplay.setPadding(new Insets(10));
-
-        VBox presetItemBox = new VBox(presetCart,selectedPresets);
-        selectedPresets.setPrefWidth(300);
-        selectedPresets.setPrefHeight(100);
-        presetItemBox.setPadding(new Insets(5));
 
         HBox presetButtonBox = new HBox(removeFromCart,clearCart);
         presetButtonBox.setAlignment(Pos.CENTER);
@@ -247,7 +414,7 @@ public class MainGUI {
 
         VBox backBox = new VBox(backToOrderPage);
         backBox.setAlignment(Pos.CENTER_RIGHT);
-        VBox masterPresetBox = new VBox(presetTitleBox,presetDisplay,presetItemBox,presetButtonBox,backBox);
+        VBox masterPresetBox = new VBox(presetTitleBox,presetsContainer, presetButtonBox,backBox);
         Scene presetScene = new Scene(masterPresetBox);
         updateScene(presetScene);
     }
@@ -268,7 +435,7 @@ public class MainGUI {
         //this will display all open customer orders
         ListView<String> orderListView = new ListView<>();
         //this will get the hashmap of all cusomer orders
-        HashMap<Integer, ArrayList<ArrayList>> orderQuery = _oc.getAllCustomerOrders();
+        HashMap<Integer, ArrayList<ArrayList>> orderQuery = _ordersController.getAllCustomerOrders();
         System.out.println(orderQuery);
         //get the order id's for the orderlistview
         Set<Integer> orderIds = orderQuery.keySet();
@@ -327,7 +494,7 @@ public class MainGUI {
          */
         Label partsLabel = new Label("Parts List");
         ListView<String> partsListView = new ListView<>();
-        ArrayList<String> partNames = _pc.getPartNames();
+        ArrayList<String> partNames = _partsController.getPartNames();
         partsListView.getItems().addAll(partNames);
         VBox partsListViewContainer = new VBox(partsLabel, partsListView);
         HBox partsMainContainer = new HBox(SPACING, partsListViewContainer);
