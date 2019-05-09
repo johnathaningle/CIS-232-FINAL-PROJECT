@@ -35,8 +35,8 @@ public class MainGUI {
 
     //values for keeping track of the user
     private String currentUsername;
-    private int currentUserId;
-    private int currentOrderId;
+    private int _currentCustomerId;
+    private int _currentOrderId;
 
 
     public MainGUI() {
@@ -45,6 +45,7 @@ public class MainGUI {
         _ordersController = new OrdersController();
         _customersController = new CustomersController();
         _presetsController = new PresetsController();
+        _currentOrderId = -99;
     }
 
     public void SetMainGuiStage(Stage stage) {
@@ -81,7 +82,7 @@ public class MainGUI {
             String pw = passwordTF.getText();
             String un = usernameTF.getText();
             if(_customersController.login(un, pw)) {
-                currentUserId = _customersController.getCurrentCustomerId();
+                _currentCustomerId = _customersController.getCurrentCustomerId();
                 buildDashboard();
             }
         });
@@ -288,9 +289,67 @@ public class MainGUI {
         ordersCreatorButton.setOnAction(event -> {
             buildOrderCreator();
         });
-        HBox navButtonsContainer = new HBox(SPACING, ordersButton, partsButton, ordersCreatorButton);
+
+        Button viewOrdersButton = new Button("Your Orders");
+        viewOrdersButton.setOnAction(event -> {
+            buildCurrentCustomerOrders();
+        });
+
+        HBox navButtonsContainer = new HBox(SPACING, ordersButton, partsButton, ordersCreatorButton, viewOrdersButton);
         VBox mainContainer = new VBox(SPACING, title, navButtonsContainer);
         mainContainer.setPadding(new Insets(SPACING, SPACING, SPACING, SPACING));
+        Scene scene = new Scene(mainContainer);
+        updateScene(scene);
+    }
+
+    private void buildCurrentCustomerOrders() {
+        Label title = new Label("Current Open Orders");
+        //only used if the user wants to edit the order
+
+        //orders gui components
+        ListView<String> orderPartsListView = new ListView<>();
+        ListView<String> currentOrdersListView = new ListView<>();
+
+        //get the details for all unpaid customer orders
+        HashMap<Integer, ArrayList<ArrayList>> orders = _ordersController.getCustomerOrders(_currentCustomerId);
+        //get all the id's for the orders
+        Set<Integer> orderIds = orders.keySet();
+        for(Integer i : orderIds) {
+            currentOrdersListView.getItems().add(i.toString());
+        }
+
+        //when the user clicks an order, update the listview to show all parts associated with that order
+        currentOrdersListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                //clear the order parts listview
+                orderPartsListView.getItems().clear();
+                //get the parts associated with that order
+                int orderId = Integer.parseInt(newValue.toString());
+                //set the current orderId to the global variable if the user wants to edit the order
+                _currentOrderId = orderId;
+                System.out.println("GETTING PARTS FOR ORDERID: " + orderId + " AND CUSTOMER NUM: " + _currentCustomerId);
+                ArrayList<String> orderParts = _ordersController.getOrderParts(orderId, _currentCustomerId);
+                orderPartsListView.getItems().addAll(orderParts);
+            }
+        });
+        HBox orderComponentsContainer = new HBox(SPACING, currentOrdersListView, orderPartsListView);
+
+        //nav controls
+        Button backToDash = new Button("Back to Dashboard");
+        backToDash.setOnAction(event -> {
+            buildDashboard();
+        });
+        HBox navControlContainer = new HBox(SPACING, backToDash);
+
+        Button editThisOrder = new Button("Edit this order");
+        editThisOrder.setOnAction(event -> {
+            if(_currentOrderId > 0) {
+                buildOrderCreator();
+            }
+        });
+
+        VBox mainContainer = new VBox(SPACING, title, orderComponentsContainer, navControlContainer);
         Scene scene = new Scene(mainContainer);
         updateScene(scene);
     }
@@ -298,6 +357,14 @@ public class MainGUI {
     private void buildOrderCreator() {
         Label subTotalNum = new Label();
         Label totalNum = new Label();
+
+        //check to see if the customer has an order they would like to edit, if not, create a new order
+        if (_currentOrderId < 0) {
+            //since the order id is -99 still, create an order for the customer
+            _ordersController.createCustomerOrder(_currentCustomerId);
+            //get the id of the new order (it will be empty)
+            _currentOrderId = _ordersController.getEmptyCustomerOrderId(_currentCustomerId);
+        }
 
         ComboBox partTypes = new ComboBox();
 
@@ -325,7 +392,7 @@ public class MainGUI {
         titleBox.setAlignment(Pos.CENTER);
 
 
-        partTypes.getItems().addAll("All","Keyboards","Mice","Monitors","RAM");
+        partTypes.getItems().addAll(_partsController.getAllPartTypes());
         partTypes.getSelectionModel().selectFirst();
         HBox partOptions = new HBox(view,partTypes);
         partOptions.setSpacing(5);
@@ -420,7 +487,8 @@ public class MainGUI {
         addAllToCart.setOnAction(event -> {
             Object[] partsList = presetPartsListView.getItems().toArray();
             for(Object o : partsList) {
-
+                //get the part id from the part string
+                int partId = Integer.parseInt(o.toString().split(":")[0]);
             }
         });
 
@@ -431,7 +499,7 @@ public class MainGUI {
             buildOrderCreator();
         });
 
-        HBox presetButtonBox = new HBox(removeFromCart,clearCart);
+        HBox presetButtonBox = new HBox(removeFromCart,clearCart, addAllToCart);
         presetButtonBox.setAlignment(Pos.CENTER);
         presetButtonBox.setSpacing(20);
 

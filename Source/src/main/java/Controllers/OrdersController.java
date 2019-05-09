@@ -98,7 +98,7 @@ public class OrdersController {
                         "      FROM LINE L\n" +
                         "      JOIN PART P ON L.PART_ID = P.PART_ID) AG2\n" +
                         "ON AG2.ORDER_ID = O.ORDER_ID " +
-                        "WHERE C.CUSTOMER_ID = " + customerId);
+                        "WHERE C.CUSTOMER_ID = " + customerId + " AND O.ORDER_PAID = false");
         //init the variable to check the existing list for the orderid
         Integer currentOrderId;
         //this loop is used to format the query into a easily used format
@@ -143,7 +143,34 @@ public class OrdersController {
         String query = "INSERT INTO \"ORDER\" (\"CUSTOMER_ID\", \"ORDER_PAID\") VALUES ("+customerId+", DEFAULT)";
         _eu.execute(query);
         System.out.println("SUCCESS: " + query);
+    }
 
+    //when the user creates a new order, get one that has no parts
+    //return the order id
+    public int getEmptyCustomerOrderId(int customerId) {
+        String query = "SELECT O.ORDER_ID\n" +
+                "FROM \"ORDER\" O\n" +
+                "LEFT JOIN LINE L ON L.ORDER_ID = O.ORDER_ID\n" +
+                "WHERE L.LINE_QTY IS NULL AND CUSTOMER_ID = " + customerId;
+        ArrayList<HashMap<String, String>> result = _ec.execute(query);
+        int orderId = Integer.parseInt(result.get(0).get("ORDER_ID"));
+        return orderId;
+    }
+
+    public ArrayList<String> getOrderParts(int orderId, int customerId) {
+        ArrayList<String> parts = new ArrayList<>();
+        String query = "SELECT P.PART_ID, P.PART_NAME FROM\n" +
+                "\"ORDER\" O\n" +
+                "JOIN LINE L ON L.ORDER_ID = O.ORDER_ID\n" +
+                "JOIN PART P on L.PART_ID = P.PART_ID\n" +
+                "WHERE L.ORDER_ID = "+orderId+" AND O.CUSTOMER_ID = " + customerId;
+        ArrayList<HashMap<String, String>> orderPartsQuery = _ec.execute(query);
+        for (HashMap h: orderPartsQuery) {
+            String part = h.get("PART_ID") + ": " + h.get("PART_NAME");
+            System.out.println(part);
+            parts.add(part);
+        }
+        return parts;
     }
 
     public void addPartToCustomerOrder(int orderId, int partId, int quantity) {

@@ -12,7 +12,7 @@ public class Main extends Application {
     }
     public static void main(String[] args) {
 //        BootstrapDB bootstrapDB = new BootstrapDB();
-//        bootstrapDB.ResetDatabase();
+////        bootstrapDB.ResetDatabase();
         launch(args);
 
     }

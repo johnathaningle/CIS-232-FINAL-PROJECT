@@ -63,6 +63,18 @@ public class PartsController {
         return partAttributes;
     }
 
+    public ArrayList<String> getAllPartTypes() {
+        ArrayList<String> types = new ArrayList<>();
+        String query = "SELECT PA.PART_ATTRIBUTE_VALUE\n" +
+                "FROM PART_ATTRIBUTE PA\n" +
+                "WHERE PA.PART_ATTRIBUTE_TYPE = 'TYPE'";
+        ArrayList<HashMap<String, String>> result = _es.execute(query);
+        for (HashMap h : result) {
+            types.add(h.get("PART_ATTRIBUTE_VALUE").toString());
+        }
+        return types;
+    }
+
     public int getPartId(String partName) {
         String query = "SELECT PART_ID FROM PART WHERE PART_NAME = '"+partName+"'";
         ArrayList<HashMap<String, String>> queryResult = _es.execute(query);
