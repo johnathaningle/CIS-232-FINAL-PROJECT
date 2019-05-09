@@ -7,11 +7,12 @@ import java.sql.*;
 public class ExecuteGeneric {
     private Config _config = new Config();
 
-    public void execute(String query) {
+    public boolean execute(String query) {
         try {
             DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
         } catch (Exception e) {
             System.out.println(e);
+            return false;
         }
         final String DB_URL = _config.DB_URL;
 
@@ -22,6 +23,7 @@ public class ExecuteGeneric {
             statement.close();
             con.close();
             System.out.println("QUERY SUCCESSFUL...");
+            return true;
 
         } catch (Exception e) {
             if (query.contains("DROP")) {
@@ -29,6 +31,7 @@ public class ExecuteGeneric {
             } else {
                 System.out.println(e);
             }
+            return false;
 
         }
     }
