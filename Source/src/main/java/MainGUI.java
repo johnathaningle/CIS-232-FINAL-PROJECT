@@ -355,6 +355,23 @@ public class MainGUI {
     }
 
     private void buildOrderCreator() {
+        ComboBox partTypes = new ComboBox();
+
+        ListView<String> partsListView = new ListView<>();
+        ListView<String> selectedPartsListView = new ListView<>();
+
+        //if the user has not selected an existing order, check if they have any open orders.
+        if(_currentOrderId < 0) {
+            HashMap<Integer, ArrayList<ArrayList>> customerOrders =
+                    _ordersController.getCustomerOrders(_currentCustomerId);
+            //if there are no unpaid orders, create a new order
+            if(customerOrders.isEmpty()) {
+                _ordersController.createCustomerOrder(_currentCustomerId);
+                _currentOrderId = _ordersController.getEmptyCustomerOrderId(_currentCustomerId);
+            } else {
+                _currentOrderId = Integer.parseInt(customerOrders.keySet().toArray()[0].toString());
+            }
+        }
         Label subTotalNum = new Label();
         Label totalNum = new Label();
 
@@ -366,10 +383,11 @@ public class MainGUI {
             _currentOrderId = _ordersController.getEmptyCustomerOrderId(_currentCustomerId);
         }
 
-        ComboBox partTypes = new ComboBox();
+        //init the orderParts list with existing values (if any)
+        selectedPartsListView
+                .getItems()
+                .addAll(_ordersController.getOrderParts(_currentOrderId, _currentCustomerId));
 
-        ListView<String> parts = new ListView<>();
-        ListView<String> selectedParts = new ListView<>();
 
         //Order Interface Labels
         Label title = new Label("Customize Your Order");
@@ -383,7 +401,21 @@ public class MainGUI {
         //Order Interface Buttons
         Button viewPresetsButton = new Button("View Presets");
         Button addButton = new Button("Add \u2192");
+        addButton.setOnAction(event -> {
+            Object[] parts = partsListView.getSelectionModel().getSelectedItems().toArray();
+            for (Object p : parts) {
+                int partId = Integer.parseInt(p.toString().split(":")[0]);
+                _ordersController.addPartToCustomerOrder(_currentOrderId, partId, 1);
+            }
+            selectedPartsListView.getItems().clear();
+            selectedPartsListView
+                    .getItems()
+                    .addAll(_ordersController.getOrderParts(_currentOrderId, _currentCustomerId));
+        });
         Button removeButton = new Button("Remove \u2190");
+        removeButton.setOnAction(event -> {
+            
+        });
         Button clearButton = new Button("Clear");
         Button submitOrderButton = new Button("Submit Order");
 
@@ -393,7 +425,14 @@ public class MainGUI {
 
 
         partTypes.getItems().addAll(_partsController.getAllPartTypes());
-        partTypes.getSelectionModel().selectFirst();
+        partTypes.valueProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                partsListView.getItems().clear();
+                ArrayList<String> parts = _partsController.getPartsByCategory(newValue.toString());
+                partsListView.getItems().addAll(parts);
+            }
+        });
         HBox partOptions = new HBox(view,partTypes);
         partOptions.setSpacing(5);
 
@@ -413,7 +452,7 @@ public class MainGUI {
 
         VBox buttonBox = new VBox(addButton,removeButton,clearButton);
 
-        HBox partSelectionBox = new HBox(parts,buttonBox,selectedParts);
+        HBox partSelectionBox = new HBox(partsListView,buttonBox,selectedPartsListView);
 
         partSelectionBox.setAlignment(Pos.CENTER);
         partSelectionBox.setSpacing(10);

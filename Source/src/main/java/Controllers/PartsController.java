@@ -3,6 +3,7 @@ package Controllers;
 import Services.ExecuteSelect;
 import jdk.nashorn.internal.runtime.ECMAException;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -88,5 +89,18 @@ public class PartsController {
             System.out.println("COULD NOT FIND PART: "+ partName);
             return -99;
         }
+    }
+
+    public ArrayList<String> getPartsByCategory(String catgegory) {
+        ArrayList<String> parts = new ArrayList<>();
+        String query = "SELECT * FROM PART P\n" +
+                "JOIN PART_ATTRIBUTE PA on P.PART_ID = PA.PART_ID\n" +
+                "WHERE PA.PART_ATTRIBUTE_VALUE = '"+catgegory+"'";
+        ArrayList<HashMap<String, String>> queryResult = _es.execute(query);
+        for(HashMap h : queryResult) {
+            String part = h.get("PART_ID") + ": " + h.get("PART_NAME") + " - " + h.get("PART_PRICE");
+            parts.add(part);
+        }
+        return parts;
     }
 }

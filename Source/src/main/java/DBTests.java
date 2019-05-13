@@ -18,59 +18,13 @@ public class DBTests {
         CustomersController customersController = new CustomersController();
         OrdersController ordersController = new OrdersController();
 
-        //this is how you get the price of an item
-        Double price = partsController.getPartPrice(1);
-        System.out.println(price);
-
-        //get all parts
-        ArrayList<HashMap<String, String>> allParts = partsController.getParts();
-        for (HashMap h: allParts) {
-            System.out.println(h);
+        ArrayList<String> parts = partsController.getPartsByCategory("Motherboard");
+        for(String part : parts) {
+            System.out.println(part);
         }
 
-        //get the attributes for a certain part
-        ArrayList partAttributes = partsController.getPartAttributes(1);
-        for (int i = 0; i < partAttributes.size(); i++) {
-            System.out.println(partAttributes.get(i));
-        }
-
-        //this is how you check if login credentials are correct
-        System.out.println(customersController.login("bobbymon", "password"));
-
-        //this is how you create an order
-        ordersController.createCustomerOrder(1);
-        //this is how you get a list of parts for each order and it's total
-        HashMap<Integer, ArrayList<ArrayList>> orders = ordersController.getCustomerOrders(1);
-        System.out.println(orders);
-
-        //get the id of a part
-        System.out.println(partsController.getPartId("Samsung SSD"));
-
-        //get preset names
-//        ArrayList<String> presetNames = new ArrayList<>();
-//        ArrayList<HashMap<String, String>> presets = presetsController.getPresets();
-//        for (HashMap h : presets) {
-//            String presetId = h.get("PRESET_ID").toString();
-//            String presetName = h.get("PRESET_NAME").toString();
-//            presetNames.add(presetId+ ": " + presetName);
-//        }
-
-        //get the parts for a preset
-        presetsController.getPresetParts(4);
-//        ArrayList<HashMap<String, String>> presetParts = presetsController.getPresetParts();
-
-        //try to register a user
-//        if(customersController.register("John", "Ingle", "123-123-1234", "test@email.com",
-//                "123 Main Street", "Hunna Hunna", "Iowa", 21123, "jingle", "password")) {
-//            System.out.println("Customer successfully registered");
-//        } else {
-//            System.out.println("There was a problem registering the user...");
-//        }
-
-        //GET THE PARTS FOR ONE ORDER
-        ordersController.getOrderParts(1, 1);
-
-        //get the orderid for a customer that is empty
-        System.out.println(ordersController.getEmptyCustomerOrderId(1));
+        //try to get an order for a customer that has none
+        HashMap<Integer, ArrayList<ArrayList>> customerOrders = ordersController.getCustomerOrders(1);
+        System.out.println(Integer.parseInt(customerOrders.keySet().toArray()[0].toString()));
     }
 }

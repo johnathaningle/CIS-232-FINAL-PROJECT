@@ -17,3 +17,5 @@ Source/\.idea/
 Notes/~\$Notes\.xlsx
 
 *.kotlin_module
+
+*.iml
