@@ -1,3 +1,4 @@
+import Configuration.Config;
 import Controllers.CustomersController;
 import Controllers.OrdersController;
 import Controllers.PartsController;
@@ -16,13 +17,17 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
 public class MainGUI {
+    private Config _config = new Config();
+    private DecimalFormat _df = new DecimalFormat("#####.00");
     private final int SPACING = 25;
     final int LV_WIDTH = 150;
     final int LV_HEIGHT = 75;
@@ -414,10 +419,37 @@ public class MainGUI {
         });
         Button removeButton = new Button("Remove \u2190");
         removeButton.setOnAction(event -> {
-            
+            String currentPart = selectedPartsListView.getSelectionModel().getSelectedItems().get(0);
+            int partId = Integer.parseInt(currentPart.split(":")[0]);
+            _ordersController.removePartFromCustomerOrder(_currentOrderId, partId);
+            selectedPartsListView.getItems().clear();
+            selectedPartsListView
+                    .getItems()
+                    .addAll(_ordersController.getOrderParts(_currentOrderId, _currentCustomerId));
         });
         Button clearButton = new Button("Clear");
+        clearButton.setOnAction(event -> {
+            _ordersController.clearOrderParts(_currentOrderId);
+            selectedPartsListView.getItems().clear();
+        });
+        Button checkPriceButton = new Button("Check Price");
+        checkPriceButton.setOnAction(event -> {
+            double subtotal = _ordersController.getOrderTotal(_currentOrderId);
+            subTotalLabel.setText("Subtotal: " + subtotal);
+            double total = subtotal * (1 +_config.TAXRATE);
+            total = Double.parseDouble(_df.format(total));
+            totalLabel.setText("Total (+6% tax): " + total);
+        });
         Button submitOrderButton = new Button("Submit Order");
+        submitOrderButton.setOnAction(event -> {
+            int btn = JOptionPane.YES_NO_OPTION;
+            int result = JOptionPane.showConfirmDialog(null, "Confirm Order:", "Order", btn);
+            System.out.println(result);
+            if(result == JOptionPane.YES_OPTION) {
+                _ordersController.submitOrder(_currentOrderId);
+                buildDashboard();
+            }
+        });
 
         //Order Interface formatting
         HBox titleBox = new HBox(title);
@@ -450,7 +482,7 @@ public class MainGUI {
         optionGrid.setVgap(10);
         optionGrid.setPadding(new Insets(5));
 
-        VBox buttonBox = new VBox(addButton,removeButton,clearButton);
+        VBox buttonBox = new VBox(addButton,removeButton,clearButton, checkPriceButton);
 
         HBox partSelectionBox = new HBox(partsListView,buttonBox,selectedPartsListView);
 

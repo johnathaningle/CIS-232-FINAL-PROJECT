@@ -17,14 +17,9 @@ public class DBTests {
         PresetsController presetsController = new PresetsController();
         CustomersController customersController = new CustomersController();
         OrdersController ordersController = new OrdersController();
+//
+//        ordersController.clearOrderParts(1);
 
-        ArrayList<String> parts = partsController.getPartsByCategory("Motherboard");
-        for(String part : parts) {
-            System.out.println(part);
-        }
 
-        //try to get an order for a customer that has none
-        HashMap<Integer, ArrayList<ArrayList>> customerOrders = ordersController.getCustomerOrders(1);
-        System.out.println(Integer.parseInt(customerOrders.keySet().toArray()[0].toString()));
     }
 }

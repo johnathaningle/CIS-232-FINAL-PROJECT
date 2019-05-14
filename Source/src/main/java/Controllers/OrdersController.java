@@ -186,4 +186,35 @@ public class OrdersController {
         System.out.println("SUCCESS: "+ query);
     }
 
+    public void clearOrderParts(int orderId) {
+        String query = "DELETE FROM LINE WHERE ORDER_ID = " + orderId;
+        _eu.execute(query);
+    }
+
+    public double getOrderTotal(int orderId) {
+        double total = -99.00;
+        String query = "SELECT SUM(AG1.LINETOTAL) ORDERTOTAL\n" +
+                "FROM (SELECT\n" +
+                "      L.LINE_QTY * P.PART_PRICE LINETOTAL\n" +
+                "      FROM LINE L\n" +
+                "      JOIN PART P ON L.PART_ID = P.PART_ID\n" +
+                "      WHERE L.ORDER_ID = "+orderId+") AG1";
+        ArrayList<HashMap<String, String >> orderQuery = _ec.execute(query);
+        try {
+            total = Double.parseDouble(orderQuery.get(0).get("ORDERTOTAL"));
+        } catch (Exception e) {
+            System.out.println("Unable to parse total...");
+            System.out.println(e);
+        }
+        return total;
+    }
+
+    public void submitOrder(int orderId) {
+        String query = "UPDATE \"ORDER\" SET ORDER_PAID = TRUE WHERE ORDER_ID = " + orderId;
+        if(_eu.execute(query)) {
+            System.out.println("Order purchased");
+        } else {
+            System.out.println("Something went wrong...");
+        }
+    }
 }
