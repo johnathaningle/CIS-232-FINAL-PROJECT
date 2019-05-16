@@ -1,0 +1,11 @@
+create table PART_ATTRIBUTE
+(
+	PART_ID INTEGER not null
+		constraint PART_ATTRIBUTE_PART_PART_ID_FK
+			references PART,
+	PART_ATTRIBUTE_TYPE VARCHAR(30) not null,
+	PART_ATTRIBUTE_VALUE VARCHAR(80),
+	constraint PART_ATTRIBUTE_PK
+		primary key (PART_ID, PART_ATTRIBUTE_TYPE)
+);
+

@@ -1,0 +1,6 @@
+create table PRESET_PART
+(
+	PRESET_ID INTEGER,
+	PART_ID INTEGER
+);
+
