@@ -1,0 +1,10 @@
+create table PART
+(
+	PART_ID INTEGER
+		constraint PART_PK
+			primary key,
+	PART_NAME VARCHAR(50),
+	PART_PRICE DECIMAL(7,2),
+	PART_FORM_FACTOR VARCHAR(20)
+);
+

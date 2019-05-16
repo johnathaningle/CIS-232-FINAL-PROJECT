@@ -1,0 +1,12 @@
+create table LINE
+(
+	LINE_ID int generated always as identity
+		constraint LINE_pk
+			primary key,
+	ORDER_ID int,
+	PART_ID int
+		constraint LINE_PART_PART_ID_fk
+			references PART,
+	LINE_QTY int
+);
+
