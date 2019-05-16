@@ -448,7 +448,14 @@ public class MainGUI {
             if(result == JOptionPane.YES_OPTION) {
                 _ordersController.submitOrder(_currentOrderId);
                 buildDashboard();
+                _currentOrderId = -99;
+                JOptionPane.showMessageDialog(null, "Order Purchased!");
             }
+        });
+
+        Button backToDashButton = new Button("Back to Dashboard");
+        backToDashButton.setOnAction(event -> {
+            buildDashboard();
         });
 
         //Order Interface formatting
@@ -492,15 +499,16 @@ public class MainGUI {
         buttonBox.setSpacing(30);
 
         HBox subTotalBox = new HBox(subTotalLabel,subTotalNum);
-        HBox totalBox = new HBox(totalLabel,totalNum);
+        HBox totalBox = new HBox(totalLabel,totalNum, backToDashButton);
+        HBox navButtonBox = new HBox(SPACING, submitOrderButton, backToDashButton);
 
         GridPane orderResults = new GridPane();
         orderResults.add(subTotalBox,0,0);
         orderResults.add(totalBox,0,1);
-        orderResults.add(submitOrderButton,1,1);
+        orderResults.add(navButtonBox,1,1);
 
-        subTotalBox.setSpacing(5);
-        totalBox.setSpacing(5);
+        subTotalBox.setSpacing(SPACING);
+        totalBox.setSpacing(SPACING);
 
         orderResults.setAlignment(Pos.CENTER);
         orderResults.setHgap(330);
@@ -559,7 +567,14 @@ public class MainGUI {
             Object[] partsList = presetPartsListView.getItems().toArray();
             for(Object o : partsList) {
                 //get the part id from the part string
-                int partId = Integer.parseInt(o.toString().split(":")[0]);
+                try {
+                    int partId = Integer.parseInt(o.toString().split(":")[0]);
+                    _ordersController.addPartToCustomerOrder(_currentOrderId, partId, 1);
+                    presetPartsListView.getItems().clear();
+                } catch (Exception e) {
+                    System.out.println("Cannot add part: " + e);
+                }
+
             }
         });
 
